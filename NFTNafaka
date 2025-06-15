@@ -1,0 +1,7 @@
+cd path/to/NFTNAFAKA   # zamijeni s pravom putanjom do tvog foldera
+git init
+git remote add origin https://github.com/Radmila5627/NFTNAFAKA.git
+git add .
+git commit -m "Initial commit - NFTNAFAKA mint site"
+git branch -M main
+git push -u origin main
