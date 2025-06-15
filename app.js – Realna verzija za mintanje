@@ -1,0 +1,47 @@
+const contractAddress = "0x27a0689189670477e7a8164692b7c2682351cace"; // NFTNAFAKA contract
+const soulFusionTokenAddress = "0x6C947C0f36987ABe8daD3b464a2c4fde00AD75d2"; // SoulFusionToken
+
+let web3;
+let contract;
+
+async function connectWallet() {
+  if (window.ethereum) {
+    web3 = new Web3(window.ethereum);
+    await window.ethereum.request({ method: "eth_requestAccounts" });
+
+    const accounts = await web3.eth.getAccounts();
+    document.getElementById("wallet-status").innerText = `Connected: ${accounts[0]}`;
+
+    contract = new web3.eth.Contract(abi, contractAddress);
+  } else {
+    alert("Please install MetaMask!");
+  }
+}
+
+async function mintNFT() {
+  const amount = parseInt(document.getElementById("mint-amount").value);
+  if (isNaN(amount) || amount < 1 || amount > 1000) {
+    alert("Please enter a valid amount between 1 and 1000.");
+    return;
+  }
+
+  const accounts = await web3.eth.getAccounts();
+  const sender = accounts[0];
+  const mintPrice = web3.utils.toWei("0.05", "ether");
+  const totalPrice = (mintPrice * amount).toString();
+
+  try {
+    const tx = await contract.methods.mint(amount).send({
+      from: sender,
+      value: totalPrice
+    });
+
+    alert(`Mint successful! View transaction: https://bscscan.com/tx/${tx.transactionHash}`);
+  } catch (err) {
+    console.error(err);
+    alert("Minting failed. Check console for details.");
+  }
+}
+
+document.getElementById("connect-wallet").addEventListener("click", connectWallet);
+document.getElementById("mint-button").addEventListener("click", mintNFT);
