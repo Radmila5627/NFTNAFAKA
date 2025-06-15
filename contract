@@ -1,0 +1,153 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+/// @title NFTNafaka Collection Contract
+/// @notice Limited NFT minting with ERC20 token reward
+/// @author Alimdar
+
+interface IERC20 {
+    function transfer(address recipient, uint256 amount) external returns (bool);
+    function balanceOf(address account) external view returns (uint256);
+}
+
+/// Simple Ownable logic
+abstract contract Ownable {
+    address private _owner;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    constructor () {
+        _owner = msg.sender;
+        emit OwnershipTransferred(address(0), _owner);
+    }
+
+    modifier onlyOwner() {
+        require(owner() == msg.sender, "Caller is not the owner");
+        _;
+    }
+
+    function owner() public view returns (address) {
+        return _owner;
+    }
+}
+
+/// Minimal ERC721 interface with URI storage
+abstract contract ERC721 {
+    string public name;
+    string public symbol;
+
+    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+
+    mapping(uint256 => address) internal _owners;
+    mapping(address => uint256) internal _balances;
+
+    constructor(string memory _name, string memory _symbol) {
+        name = _name;
+        symbol = _symbol;
+    }
+
+    function _mint(address to, uint256 tokenId) internal virtual {
+        require(to != address(0), "Cannot mint to zero address");
+        require(_owners[tokenId] == address(0), "Token already minted");
+
+        _owners[tokenId] = to;
+        _balances[to] += 1;
+
+        emit Transfer(address(0), to, tokenId);
+    }
+
+    function balanceOf(address owner) external view returns (uint256) {
+        return _balances[owner];
+    }
+
+    function ownerOf(uint256 tokenId) external view returns (address) {
+        return _owners[tokenId];
+    }
+}
+
+contract NFTNafaka is ERC721, Ownable {
+    IERC20 public soulFusionToken;
+
+    uint256 public constant MAX_SUPPLY = 100000;
+    uint256 public constant MINT_PRICE_BNB = 0.05 ether;
+    uint256 public constant MINT_REWARD_SFT = 100 * 10 ** 18;
+
+    uint256 public nextTokenId;
+    mapping(uint256 => string) public tokenURIs;
+    mapping(address => uint256) public mintedPerWallet;
+
+    /// Emitted when the owner receives initial NFTs
+    event OwnerMintedInitialNFTs(address indexed owner, uint256 amount);
+
+    constructor(address _soulFusionToken) ERC721("NFTNafaka", "NAFAKA") {
+        soulFusionToken = IERC20(_soulFusionToken);
+
+        // 🎁 Mint 3 NFTs to the contract owner upon deployment
+        for (uint256 i = 0; i < 3; i++) {
+            _mint(msg.sender, nextTokenId);
+            tokenURIs[nextTokenId] = string(abi.encodePacked(
+                "ipfs://bafybeie7y7dkdvzuju6gczn4tc5ub2toiqjt3bt3gowoddgqokf4zazhpe/",
+                uint2str(nextTokenId),
+                ".json"
+            ));
+            nextTokenId++;
+        }
+
+        mintedPerWallet[msg.sender] = 3;
+        emit OwnerMintedInitialNFTs(msg.sender, 3);
+    }
+
+    function mint(uint256 amount) external payable {
+        require(nextTokenId + amount <= MAX_SUPPLY, "Max supply reached");
+        require(amount >= 1 && amount <= 1000, "Mint amount must be between 1 and 1000");
+        require(msg.value >= MINT_PRICE_BNB * amount, "Insufficient BNB sent");
+
+        for (uint256 i = 0; i < amount; i++) {
+            _mint(msg.sender, nextTokenId);
+            tokenURIs[nextTokenId] = string(abi.encodePacked(
+                "ipfs://bafybeie7y7dkdvzuju6gczn4tc5ub2toiqjt3bt3gowoddgqokf4zazhpe/",
+                uint2str(nextTokenId),
+                ".json"
+            ));
+            nextTokenId++;
+        }
+
+        mintedPerWallet[msg.sender] += amount;
+
+        require(
+            soulFusionToken.transfer(msg.sender, amount * MINT_REWARD_SFT),
+            "SFT reward transfer failed"
+        );
+    }
+
+    function tokenURI(uint256 tokenId) public view returns (string memory) {
+        return tokenURIs[tokenId];
+    }
+
+    function withdrawBNB(address payable to) external onlyOwner {
+        to.transfer(address(this).balance);
+    }
+
+    function withdrawTokens(address to) external onlyOwner {
+        uint256 balance = soulFusionToken.balanceOf(address(this));
+        require(soulFusionToken.transfer(to, balance), "Token transfer failed");
+    }
+
+    function uint2str(uint256 _i) internal pure returns (string memory str) {
+        if (_i == 0) return "0";
+        uint256 j = _i;
+        uint256 length;
+        while (j != 0) {
+            length++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(length);
+        uint256 k = length;
+        j = _i;
+        while (j != 0) {
+            bstr[--k] = bytes1(uint8(48 + j % 10));
+            j /= 10;
+        }
+        str = string(bstr);
+    }
+}
