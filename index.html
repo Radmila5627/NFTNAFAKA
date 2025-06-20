@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFTNAFAKA Mint</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 2rem; text-align: center; }
+    h1 { color: #333; }
+    .nft-option { border: 1px solid #ccc; padding: 1rem; margin: 1rem; background: white; display: inline-block; }
+    button { padding: 0.75rem 1.5rem; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Mint your NFTNAFAKA</h1>
+  <p>Select your NFT. Each one costs <strong>0.05 BNB</strong> and rewards you with <strong>100 SFT</strong>.<br>
+  Tokens come from <code>0x070Fa3c5fd21bBA4dD1e5a34Eeba7aBa0944836C</code></p>
+
+  <div id="nft-options">
+    <div class="nft-option">
+      <img src="https://ipfs.io/ipfs/bafybeihxnj5hlut5wwxtbgyw45pehi3767p5ygwqmqtorqvappejjz4wn4" width="200" /><br>
+      <button onclick="mint(1)">Mint NFT #1</button>
+    </div>
+    <div class="nft-option">
+      <img src="https://ipfs.io/ipfs/bafybeihwdxwhtr6u4ny4hs34a3cddmeib6lkud2flzbofn3giofm4vmp5q" width="200" /><br>
+      <button onclick="mint(2)">Mint NFT #2</button>
+    </div>
+  </div>
+
+  <p>📦 SFT Token Address: <code>0xB8A355bEFA3b2e88CDFbE8e936652f3C293f901A</code></p>
+  <p>💡 Make sure MetaMask is connected to Binance Smart Chain.</p>
+
+  <button onclick="connectWallet()">🔗 Connect Wallet</button>
+
+  <script>
+    const contractAddress = "0x27a0689189670477e7a8164692b7c2682351cace";
+    const abi = [
+      {
+        "inputs": [
+          { "internalType": "uint256", "name": "amount", "type": "uint256" }
+        ],
+        "name": "mint",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      }
+    ];
+
+    let web3;
+    let provider;
+
+    async function connectWallet() {
+      if (window.ethereum) {
+        provider = window.ethereum;
+        web3 = new Web3(provider);
+        try {
+          await provider.request({ method: 'eth_requestAccounts' });
+          alert("✅ Wallet connected!");
+        } catch (err) {
+          alert("❌ Connection rejected.");
+        }
+      } else {
+        alert("MetaMask not found. Please install MetaMask to continue.");
+      }
+    }
+
+    async function mint(tokenId) {
+      if (!web3) {
+        alert("Please connect your wallet first.");
+        return;
+      }
+
+      const accounts = await web3.eth.getAccounts();
+      const contract = new web3.eth.Contract(abi, contractAddress);
+
+      try {
+        await contract.methods.mint(1).send({
+          from: accounts[0],
+          value: web3.utils.toWei("0.05", "ether")
+        });
+        alert("🎉 NFT minted successfully! You will receive 100 SFT tokens shortly.");
+      } catch (err) {
+        console.error(err);
+        alert("❌ Transaction failed: " + err.message);
+      }
+    }
+  </script>
+</body>
+</html>
