@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFTNAFAKA – Mint & Reward</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    body{font-family:Inter,sans-serif;background:#0d0d0d;color:#fafafa;display:flex;flex-direction:column;align-items:center;gap:2rem;padding:3rem}
+    h1{font-size:2rem;margin:0}
+    button{background:#ffd369;border:none;padding:.8rem 1.6rem;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s}
+    button:hover{transform:scale(1.04)}
+    #preview{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+    .card{background:#1a1a1a;padding:1rem;border-radius:16px;width:180px;text-align:center}
+    .card img{width:100%;border-radius:12px}
+  </style>
+</head>
+<body>
+  <h1>NFTNAFAKA 🌾</h1>
+  <button id="connect">Poveži Wallet</button>
+  <button id="mint" disabled>Mintaj 1 NFT (0.05 BNB) + 100 SFT</button>
+  <div id="status"></div>
+  <h2>Moji NFT-ovi</h2>
+  <div id="preview"></div>
+
+<script>
+// ====== POSTAVI ADRESE ======
+const NFT_ADDRESS = "0xYOUR_NFT_CONTRACT";   // promijeni u stvarnu adresu
+const SFT_ADDRESS = "0xYOUR_SFT_TOKEN";     // nije nužno, ali možeš prikazati saldo
+const CHAIN_ID = "0x38"; // 0x38 = BSC Mainnet
+
+// ====== ABI (samo minimalne funkcije) ======
+const NFT_ABI = [
+  {"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"payable","type":"function"},
+  {"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},
+  {"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
+  {"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"tokenOfOwnerByIndex","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}
+];
+
+let web3, account, nft;
+const connectBtn = document.getElementById('connect');
+const mintBtn = document.getElementById('mint');
+const status = document.getElementById('status');
+const preview = document.getElementById('preview');
+
+connectBtn.onclick = async () => {
+  if(window.ethereum){
+    try{
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: CHAIN_ID }] });
+      const accs = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      account = accs[0];
+      web3 = new Web3(window.ethereum);
+      nft = new web3.eth.Contract(NFT_ABI, NFT_ADDRESS);
+      connectBtn.textContent = account.slice(0,6) + '...' + account.slice(-4);
+      mintBtn.disabled = false;
+      loadMyNFTs();
+    }catch(err){
+      status.textContent = 'Greška: '+err.message;
+    }
+  }else{
+    alert('Potrebno je instalirati MetaMask');
+  }
+};
+
+mintBtn.onclick = async () => {
+  try{
+    status.textContent = 'Mintam...';
+    await nft.methods.mint(1).send({from: account, value: web3.utils.toWei('0.05','ether')});
+    status.textContent = 'Mint uspješan!';
+    loadMyNFTs();
+  }catch(err){
+    status.textContent = 'Greška pri mintanju: '+err.message;
+  }
+};
+
+async function loadMyNFTs(){
+  preview.innerHTML = '';
+  try{
+    const balance = await nft.methods.balanceOf(account).call();
+    for(let i=0;i<balance;i++){
+      const tokenId = await nft.methods.tokenOfOwnerByIndex(account,i).call();
+      const uri = await nft.methods.tokenURI(tokenId).call();
+      const meta = await fetch(convertToGateway(uri)).then(r=>r.json());
+      const card = document.createElement('div');
+      card.className='card';
+      card.innerHTML = `<img src="${convertToGateway(meta.image)}"/><p>#${tokenId}</p>`;
+      preview.appendChild(card);
+    }
+  }catch(e){ console.log(e); }
+}
+
+function convertToGateway(ipfsUrl){
+  return ipfsUrl.replace('ipfs://','https://ipfs.io/ipfs/');
+}
+</script>
+</body>
+</html>
