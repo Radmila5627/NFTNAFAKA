@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFTNAFAKA Mint</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 2em; }
+    .nft-card { border: 1px solid #ccc; padding: 1em; border-radius: 12px; display: inline-block; margin: 1em; width: 250px; }
+    img { max-width: 100%; border-radius: 8px; }
+    button { margin-top: 1em; padding: 0.5em 1em; font-size: 1em; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>NFTNAFAKA Mint</h1>
+  <p>Connect your MetaMask to mint NFT and receive 100 SFT tokens</p>
+  <button onclick="connectWallet()">🔗 Connect Wallet</button>
+
+  <div id="nft-gallery"></div>
+
+  <script>
+    const sftContractAddress = '0xB8A355bEFA3b2e88CDFbE8e936652f3C293f901A';
+    const senderAddress = '0x070Fa3c5fd21bBA4dD1e5a34Eeba7aBa0944836C';
+    const sftABI = [
+      {
+        "constant": false,
+        "inputs": [
+          {"name": "_to", "type": "address"},
+          {"name": "_value", "type": "uint256"}
+        ],
+        "name": "transfer",
+        "outputs": [{"name": "", "type": "bool"}],
+        "type": "function"
+      }
+    ];
+
+    const nfts = [
+      {
+        id: 0,
+        image: 'https://ipfs.io/ipfs/bafybeibwq4d2tvc5ay677qdhm2pvmfqojabyv4izts5btofcfpydtovbna',
+        title: 'NFTNAFAKA #0'
+      },
+      {
+        id: 1,
+        image: 'https://ipfs.io/ipfs/bafybeihwdxwhtr6u4ny4hs34a3cddmeib6lkud2flzbofn3giofm4vmp5q',
+        title: 'NFTNAFAKA #1'
+      },
+      {
+        id: 2,
+        image: 'https://ipfs.io/ipfs/bafybeihxnj5hlut5wwxtbgyw45pehi3767p5ygwqmqtorqvappejjz4wn4',
+        title: 'NFTNAFAKA #2'
+      }
+    ];
+
+    let web3;
+    let userAccount;
+
+    async function connectWallet() {
+      if (window.ethereum) {
+        web3 = new Web3(window.ethereum);
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        userAccount = accounts[0];
+        alert(`Wallet connected: ${userAccount}`);
+      } else {
+        alert("MetaMask not found");
+      }
+    }
+
+    async function mintNFT(index) {
+      if (!web3 || !userAccount) {
+        alert("Please connect wallet first");
+        return;
+      }
+
+      const contract = new web3.eth.Contract(sftABI, sftContractAddress);
+
+      try {
+        const tx = await contract.methods.transfer(userAccount, web3.utils.toWei('100', 'ether')).send({ from: senderAddress });
+        alert(`✅ Minted ${nfts[index].title} and sent 100 SFT! TxHash: ${tx.transactionHash}`);
+      } catch (err) {
+        console.error(err);
+        alert("❌ Transaction failed");
+      }
+    }
+
+    const gallery = document.getElementById('nft-gallery');
+    nfts.forEach(nft => {
+      const div = document.createElement('div');
+      div.className = 'nft-card';
+      div.innerHTML = `
+        <img src="${nft.image}" alt="${nft.title}" />
+        <h3>${nft.title}</h3>
+        <button onclick="mintNFT(${nft.id})">🎨 Mint</button>
+      `;
+      gallery.appendChild(div);
+    });
+  </script>
+</body>
+</html>
