@@ -22,7 +22,11 @@ Stvoriti zajednicu koja dijeli vrijednosti ljubavi, suradnje i kreativnosti kroz
 - 🌐 Web stranica: [https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz](https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz)  
 - 💾 GitHub repozitorij: [https://github.com/Radmila5627/NFTNAFAKA](https://github.com/Radmila5627/NFTNAFAKA)  
 - 💬 Zajednica: Telegram, LinkedIn i Instagram stranice pod nazivom **NFT NAFAKA**  
-- 📧 Kontakt: radmilaradenovic@pm.me  
+- 📧 Kontakt: radmilaradenovic@pm.me
+-   <p align="center">
+  <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="300" alt="NFT NAFAKA Logo"/>
+</p>
+
 
 🕊️ *"Nafaka nije samo sreća — to je put koji nas uči vjerovati, dijeliti i stvarati zajedno."*
 
@@ -48,7 +52,11 @@ To build a community that shares values of love, cooperation, and creativity thr
 - 🌐 Website: [https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz](https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz)  
 - 💾 GitHub repository: [https://github.com/Radmila5627/NFTNAFAKA](https://github.com/Radmila5627/NFTNAFAKA)  
 - 💬 Community: Telegram, LinkedIn and Instagram pages under **NFT NAFAKA**  
-- 📧 Contact: radmilaradenovic@pm.me  
+- 📧 Contact: radmilaradenovic@pm.me
+- <p align="center">
+  <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="300" alt="NFT NAFAKA Logo"/>
+</p>
+
 
 🕊️ *"Nafaka is not just luck — it’s the path that teaches us to believe, share, and create together."*
 
