@@ -57,6 +57,20 @@ To build a community that shares values of love, cooperation, and creativity thr
   <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="300" alt="NFT NAFAKA Logo"/>
 </p>
 
+💎 NFT NAFAKA
+
+🌐 Portfolio | Digitalna Kolekcija
+
+<table align="center"> <tr> <td align="center"> <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="150" alt="NFT NAFAKA Logo"/> <br/> <b>NFT NAFAKA</b><br/> <a href="https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz">🌐 Web</a> | <a href="https://github.com/Radmila5627/NFTNAFAKA">💻 GitHub</a> </td> </tr> </table>
+
+🖼️ Opis:
+🌐 Portfolio | Digitalna Kolekcija
+
+<table align="center"> <tr> <td align="center"> <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="150" alt="NFT NAFAKA Logo"/> <br/> <b>NFT NAFAKA</b><br/> <a href="https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz">🌐 Web</a> | <a href="https://github.com/Radmila5627/NFTNAFAKA">💻 GitHub</a> </td> </tr> </table>
+NFT NAFAKA je digitalna kolekcija nadahnuta obiljem, ravnotežom i stvaralačkom energijom.
+Kroz blockchain i umjetnost simbolizira zahvalnost, vjeru i unutarnju snagu stvaranja.
+Svaki NFT predstavlja dio šire priče o duhovnom i materijalnom blagostanju.
+
 
 🕊️ *"Nafaka is not just luck — it’s the path that teaches us to believe, share, and create together."*
 
