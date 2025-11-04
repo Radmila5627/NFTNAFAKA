@@ -1,79 +1,49 @@
-# NFTNAFAKA
-NFTNAFAKA – LOVE, SHARING, HELPING – PEACE
-# 🌿 NFT NAFAKA
-
-### HR 🇭🇷  
-**NFT NAFAKA** je digitalna kolekcija stvorena s misijom — povezati ljude kroz darivanje, zahvalnost i pozitivnu energiju.  
-Inspirirana simbolikom „nafake“ — blagoslova i obilja koji dolazi od života samog — ova kolekcija spaja svijet tehnologije i duhovnosti u jedno iskustvo.
-
-NFT NAFAKA nije samo umjetnost. To je pokret koji poziva na buđenje svijesti o vrijednosti davanja i primanja.  
-Svaki NFT nosi jedinstvenu energiju i poruku, podsjećajući nas da je obilje stvar stanja duha, a ne samo materijalnog svijeta.
-
-🌸 **Cilj projekta:**  
-Stvoriti zajednicu koja dijeli vrijednosti ljubavi, suradnje i kreativnosti kroz blockchain tehnologiju.  
-
-💫 **Ključne informacije:**  
-- **Platforma:** Binance Smart Chain (BEP-721 / BEP-1155)  
-- **Ukupna kolekcija:** 10.000 NFT-ova  
-- **Cijena mintanja:** 0.05 BNB  
-- **Vlasnička prava:** svaki NFT nosi dokaz o vlasništvu i pripadajućem simboličkom blagoslovu.  
-
-🔗 **Službeni linkovi:**  
-- 🌐 Web stranica: [https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz](https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz)  
-- 💾 GitHub repozitorij: [https://github.com/Radmila5627/NFTNAFAKA](https://github.com/Radmila5627/NFTNAFAKA)  
-- 💬 Zajednica: Telegram, LinkedIn i Instagram stranice pod nazivom **NFT NAFAKA**  
-- 📧 Kontakt: radmilaradenovic@pm.me
--   <p align="center">
-  <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="300" alt="NFT NAFAKA Logo"/>
+ <p align="center">
+  <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA_transparent_200x200.png" width="200" alt="NFTNAFAKA Logo"/>
 </p>
 
+# 💎 NFTNAFAKA  
 
-🕊️ *"Nafaka nije samo sreća — to je put koji nas uči vjerovati, dijeliti i stvarati zajedno."*
+### 🌍 Digital Collection of Abundance and Creative Energy  
+**Built on the BNB Smart Chain | Created by Radmila Radenović**
 
 ---
 
-### EN 🇬🇧  
-**NFT NAFAKA** is a digital collection created with a mission — to connect people through giving, gratitude, and positive energy.  
-Inspired by the symbolism of “nafaka” — the blessing and abundance that life provides — this collection merges technology and spirituality into one harmonious experience.
+## 💫 About | O projektu  
 
-NFT NAFAKA is more than art. It’s a movement that awakens awareness about the true value of giving and receiving.  
-Each NFT carries unique energy and meaning, reminding us that abundance is a state of spirit, not just material wealth.
+**NFT NAFAKA** is a digital collection inspired by **abundance, balance, and the creative flow of life**.  
+Each NFT represents a unique energy of giving and receiving — a reminder that true wealth flows where gratitude lives.  
 
-🌸 **Project goal:**  
-To build a community that shares values of love, cooperation, and creativity through blockchain technology.
-
-💫 **Key information:**  
-- **Network:** Binance Smart Chain (BEP-721 / BEP-1155)  
-- **Total collection:** 10,000 NFTs  
-- **Mint price:** 0.05 BNB  
-- **Ownership:** each NFT represents ownership and a symbolic blessing.
-
-🔗 **Official links:**  
-- 🌐 Website: [https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz](https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz)  
-- 💾 GitHub repository: [https://github.com/Radmila5627/NFTNAFAKA](https://github.com/Radmila5627/NFTNAFAKA)  
-- 💬 Community: Telegram, LinkedIn and Instagram pages under **NFT NAFAKA**  
-- 📧 Contact: radmilaradenovic@pm.me
-- <p align="center">
-  <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="300" alt="NFT NAFAKA Logo"/>
-</p>
-
-💎 NFT NAFAKA
-
-🌐 Portfolio | Digitalna Kolekcija
-
-<table align="center"> <tr> <td align="center"> <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="150" alt="NFT NAFAKA Logo"/> <br/> <b>NFT NAFAKA</b><br/> <a href="https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz">🌐 Web</a> | <a href="https://github.com/Radmila5627/NFTNAFAKA">💻 GitHub</a> </td> </tr> </table>
-
-🖼️ Opis:
-🌐 Portfolio | Digitalna Kolekcija
-
-<table align="center"> <tr> <td align="center"> <img src="https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA.png" width="150" alt="NFT NAFAKA Logo"/> <br/> <b>NFT NAFAKA</b><br/> <a href="https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz">🌐 Web</a> | <a href="https://github.com/Radmila5627/NFTNAFAKA">💻 GitHub</a> </td> </tr> </table>
-NFT NAFAKA je digitalna kolekcija nadahnuta obiljem, ravnotežom i stvaralačkom energijom.
-Kroz blockchain i umjetnost simbolizira zahvalnost, vjeru i unutarnju snagu stvaranja.
-Svaki NFT predstavlja dio šire priče o duhovnom i materijalnom blagostanju.
-
-
-🕊️ *"Nafaka is not just luck — it’s the path that teaches us to believe, share, and create together."*
+Created as part of the Alimdar ecosystem, NFTNAFAKA connects **art, technology, and human consciousness**, forming a bridge between the physical and digital worlds.  
 
 ---
+
+**NFT NAFAKA** je **digitalna kolekcija nadahnuta obiljem, ravnotežom i stvaralačkom energijom života.**  
+Svaki NFT predstavlja **energiju davanja i primanja** — podsjetnik da pravo bogatstvo teče tamo gdje prebiva zahvalnost.  
+
+Kolekcija je dio **Alimdar ekosustava**, koji povezuje **umjetnost, tehnologiju i ljudsku svijest** u jedinstvenu mrežu obilja i stvaranja.
+
+---
+
+## 🔗 Official Resources | Službeni linkovi
+
+- 🌐 **Website:** [https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz](https://vercel.com/alimdar-real-estate-tokenization/nftnafaka-5wmz)
+- 💻 **GitHub Repository:** [https://github.com/Radmila5627/NFTNAFAKA](https://github.com/Radmila5627/NFTNAFAKA)
+- 🖼️ **Logo (Transparent):** [https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA_transparent_200x200.png](https://raw.githubusercontent.com/Radmila5627/NFTNAFAKA/main/assets/NFTNAFAKA_transparent_200x200.png)
+- 📜 **Smart Contract (BSC):** *[To be added after deployment]*  
+- 💬 **Community:** [LinkedIn – Radmila Radenović](https://www.linkedin.com/in/radmila-radenovi%C4%87-374647bb/)
+
+---
+
+## 🌱 Vision | Vizija  
+
+To remind humanity that **true wealth begins within** — when creativity, gratitude, and technology align to serve higher purpose.  
+
+Podsjetiti čovjeka da **pravo bogatstvo započinje iznutra** — kada se kreativnost, zahvalnost i tehnologija ujedine u službi višeg smisla.  
+
+---
+
+✨ *“NFTNAFAKA is not just art — it’s a vibration of abundance.”*  
+✨ *“NFTNAFAKA nije samo umjetnost — to je vibracija obilja.”*  
 
 © 2025 NFT NAFAKA • Created with love by Radmila Radenović 🌹  
